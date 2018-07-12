@@ -1,12 +1,24 @@
 pipeline {
   agent {
-    label 'jdk9'
+    label 'jdk8'
   }
   stages {
     stage('Say Hello') {
-      steps {
-        echo 'Say Hello'
+      parallel {
+        stage('Say Hello') {
+          steps {
+            echo 'Say Hello'
+          }
+        }
+        stage('Hello bash') {
+          steps {
+            sh 'echo "Hello ${MY_NAME}!"'
+          }
+        }
       }
     }
+  }
+  environment {
+    MY_NAME = 'mary'
   }
 }
