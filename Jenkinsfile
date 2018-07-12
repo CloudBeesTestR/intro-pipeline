@@ -4,13 +4,13 @@ pipeline {
   }
   stages {
     stage('Say Hello') {
-        steps {
-          sh '''echo "Hello ${MY_NAME}!"
+      steps {
+        sh '''echo "Hello ${MY_NAME}!"
                 # echo "or is it ${params.Name}?"
                 echo "${TEST_USER_USR}"
                 echo "${TEST_USER_PSW}"
              '''
-        }
+      }
     }
     stage('Deploy') {
       input {
