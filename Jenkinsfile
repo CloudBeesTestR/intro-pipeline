@@ -12,9 +12,10 @@ pipeline {
         }
         stage('Hello bash') {
           steps {
-            sh '''echo "Hello ${MY_NAME}!" echo "${TEST_USER_USR}"
-            echo "${TEST_USER_PSW}"
-'''
+            sh '''echo "Hello ${MY_NAME}!" 
+                  echo "${TEST_USER_USR}"
+                  echo "${TEST_USER_PSW}"
+               '''
           }
         }
       }
