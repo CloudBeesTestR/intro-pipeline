@@ -4,22 +4,13 @@ pipeline {
   }
   stages {
     stage('Say Hello') {
-      parallel {
-        stage('Say Hello') {
-          steps {
-            echo 'Say Hello'
-          }
+        steps {
+          sh '''echo "Hello ${MY_NAME}!"
+                # echo "or is it ${params.Name}?"
+                echo "${TEST_USER_USR}"
+                echo "${TEST_USER_PSW}"
+             '''
         }
-        stage('Hello bash') {
-          steps {
-            sh '''echo "Hello ${MY_NAME}!"
-                  # echo "or is it ${params.Name}?"
-                  echo "${TEST_USER_USR}"
-                  echo "${TEST_USER_PSW}"
-               '''
-          }
-        }
-      }
     }
     stage('Deploy') {
       input {
